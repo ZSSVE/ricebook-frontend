@@ -1,0 +1,145 @@
+<!-- Carousel -->
+<div id="theCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Define how many slides to put in the carousel -->
+    <ol class="carousel-indicators">
+        <li data-target="#theCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#theCarousel" data-slide-to="1"></li>
+    </ol>
+
+    <!-- Define the text to place over the image -->
+    <div class="carousel-inner">
+        <div class="item active">
+            <div class="slide1"></div>
+            <div class="carousel-caption">
+                <h1>Rice book</h1>
+            </div>
+        </div>
+        <div class="item">
+            <div class="slide2"></div>
+            <div class="carousel-caption">
+                <h1>Join today!</h1>
+            </div>
+        </div>
+    </div>
+
+    <!-- Set the actions to take when the arrows are clicked -->
+    <a class="left carousel-control" href="#theCarousel" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"> </span>
+    </a>
+    <a class="right carousel-control" href="#theCarousel" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+</div>  <!-- End carousel -->
+
+
+<div class="container">
+    <div class="row">
+        <!-- Registeration Panel -->
+        <div class="col-lg-5 col-md-5 col-sm-12 col-sx-12" id="registerForm">
+            <a class="btn btn-lg btn-warning" href="#registerPanel" id="registerPaneBtn"
+               data-toggle="collapse">Register</a>
+            <br/>
+            <br/>
+
+            <!-- Registration pane that is initially hidden when the window is loaded -->
+            <div class="collapse" id="registerPanel">
+                <!--<form method="GET" action="main.html">  &lt;!&ndash;!!!&ndash;&gt;-->
+                <form>  <!--!!!-->
+                    <div class="input-group input-group-md">
+                        <!-- <br> -->
+                        <label for="accountName" class="input-group-addon">Account
+                            Name</label>
+                        <input type="text" class="form-control"
+                               name="accountName" id="accountName"
+                               placeholder="letters and numbers only"
+                               ng-model="vm.registerUsername"
+                               ng-change="vm.validateUsername()">
+                    </div>
+                    <span class="updateMsg"> {{vm.usernameMsg}}</span>
+                    <br/>
+
+                    <div class="input-group input-group-md">
+                        <label for="email"
+                               class="input-group-addon">Email</label>
+                        <input type="email" class="form-control userInfo"
+                               name="email" id="email"
+                               ng-model="vm.registerEmail"
+                               ng-change="vm.validateEmail()">
+                    </div>
+                    <span class="updateMsg"> {{vm.emailMsg}}</span>
+                    <br/>
+
+                    <div class="input-group input-group-md">
+                        <span class="input-group-addon">zipcode</span>
+                        <input class="form-control" type="text" name="zipcode"
+                               id="zipcode"
+                               placeholder="5 digites"
+                               ng-model="vm.registerZipcode"
+                               ng-change="vm.validateZipcode()">
+                    </div>
+                    <span class="updateMsg">{{ vm.zipcodeMsg }}</span>
+                    <br/>
+
+                    <div class="input-group input-group-md">
+                        <label for="password"
+                               class="input-group-addon">Password</label>
+                        <input class="form-control" type="password"
+                               name="password" id="password"
+                               ng-model="vm.registerPassword" ng-change="vm.validatePassword()">
+                    </div>
+                    <br/>
+
+                    <div class="input-group input-group-md">
+                        <label for="passwordConfirm" class="input-group-addon">Password
+                            Confirmation</label>
+                        <input class="form-control" type="password"
+                               name="passwordConfirm" id="passwordConfirm"
+                               ng-model="vm.registerPasswordConfirm"
+                               ng-change="vm.validatePassword()">
+                    </div>
+                    <span class="updateMsg"> {{ vm.passwordMsg }}</span>
+                    <br/>
+                    <button type="reset" class="btn btn-default btn-md">Clear
+                    </button>
+                    <button type="submit" id="submitBtn"
+                    class="btn btn-default btn-md"
+                    ng-click="vm.register()">submit
+                    </button>
+                    <span class="updateMsg"> {{ vm.registerMsg }}</span>
+                    <br/>
+                </form>
+            </div>
+        </div>
+
+        <!-- Log In panel -->
+        <div class="col-lg-5 col-md-5 col-sm-12 col-sx-12 col-lg-offset-2 col-md-offset-2"
+             id="loginPage">
+            <a class="btn btn-lg btn-warning" href="#loginPanel" id="loginPaneBtn"
+               data-toggle="collapse">Log In</a>
+
+            <!-- Log In Pane that is hidden when the windown is loaded -->
+            <div class="collapse" id="loginPanel">
+                <br/>
+                <div class="input-group input-group-md">
+                    <label for="username"
+                           class="input-group-addon">Username</label>
+                    <input ng-model="vm.username" type="text"
+                           class="form-control" id="username">
+                </div>
+                <br/>
+
+                <div class="input-group input-group-md">
+                    <label for="loginPassword" class="input-group-addon">Password</label>
+                    <input ng-model="vm.password" type="password"
+                           class="form-control" id="loginPassword">
+                </div>
+                <br/>
+                <p id="systemMsg">{{ vm.loginMsg }}</p>
+
+                <button id="logIn" class="btn btn-default btn-md"
+                        ng-click="vm.login()">Log in
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

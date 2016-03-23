@@ -1,0 +1,29 @@
+<!-- Panel for people current user is following -->
+<div class="followings">
+    <div class="card well well-sm" ng-repeat='following in vm.followings'>
+        <div class="following">
+            <div class="userSidebarName">
+
+                <span class="followingName">{{
+                    following.username }}</span>
+                <span class= "unfollowBtn pull-right" ng-click="vm.unfollow(following.username)">
+                    unfollow
+                </span>
+            </div>
+            <img class="avatar img-circle center-block"
+                 ng-src="{{ following.avatar }}"/>
+
+            <p class="followingStatus">{{ following.status }}</p>
+
+        </div>
+    </div>
+    <div class="input-group input-group-sm">
+        <input type="text" class="form-control" placeholder="Add a following..." ng-model="vm.newFollowing">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" id='addFollowingBtn' type="button"
+                                    ng-click="vm.addFollowing()">Add
+                            </button>
+                        </span>
+    </div>
+    <p class="updateMsg">{{vm.followMsg}}</p>
+</div>

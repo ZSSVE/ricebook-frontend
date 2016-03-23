@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/post/postCtrl.spec.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">app/post/</a> postCtrl.spec.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>80/80</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/0</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>10/10</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>80/80</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">19×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">describe('Post controller', function () {
+    var helper = testHelper;
+    var ctrl;
+&nbsp;
+    beforeEach(module('riceBookApp'));
+&nbsp;
+    beforeEach(module(function ($provide) {
+        $provide.value('api', helper.mockApiService);
+    }));
+&nbsp;
+    beforeEach(inject(function ($controller, $rootScope, $q, api) {
+        helper.init($q);
+        ctrl = $controller('PostCtrl', {
+            'api': api,
+        });
+        ctrl._resolveTestPromises = function () {
+            helper.resolveTestPromises($rootScope);
+        };
+        ctrl._resolveTestPromises();
+    }));
+&nbsp;
+    it('calls the post api and gets 4 test posts', function () {
+        ctrl.loadPosts();
+        ctrl._resolveTestPromises();
+        expect(ctrl.posts.length).toBe(4);
+    });
+&nbsp;
+    it('adds one post', function () {
+        var newPostBody = "A added post";
+        ctrl.newPost = newPostBody;
+&nbsp;
+        ctrl.loadPosts();
+        ctrl._resolveTestPromises();
+        expect(ctrl.posts.length).toBe(4);
+&nbsp;
+        ctrl.newPost = newPostBody;
+        ctrl.addPost();
+        ctrl._resolveTestPromises();
+        ctrl.loadPosts();
+        ctrl._resolveTestPromises();
+        expect(ctrl.posts.length).toBe(5);
+        expect(ctrl.posts[4].body).toEqual(newPostBody);
+    });
+&nbsp;
+    it('edits a post', function () {
+        ctrl.username = 'Test';
+        var postAuthor = 'Test';
+        var postID = 1;
+        var postBody = "Updated post";
+        ctrl.loadPosts();
+        ctrl._resolveTestPromises();
+        var initialNumber = ctrl.posts.length;
+        // Edit the post with the postID.
+        ctrl.editPost(postAuthor, postID, postBody);
+        ctrl._resolveTestPromises();
+        ctrl.loadPosts();
+        ctrl._resolveTestPromises();
+        expect(ctrl.posts.length).toBe(initialNumber);
+        expect(ctrl.posts[postID - 1].body).toBe(postBody); //index is postID -1 since test post id numbered from 1.
+    });
+&nbsp;
+    it('comments on a post', function () {
+        var postID = 1;
+        var commentBody = "Added comment";
+        ctrl.newComment = commentBody;
+        ctrl.loadPosts();
+        ctrl._resolveTestPromises();
+        var index = ctrl.posts.findIndex(function (post) {
+            return post.id === postID;
+        });
+        var initialNumber = ctrl.posts[index].comments.length;
+        // Edit the post with the postID.
+        ctrl.addComment(postID);
+        ctrl._resolveTestPromises();
+        ctrl.loadPosts();
+        ctrl._resolveTestPromises();
+        expect(ctrl.posts[index].comments.length).toBe(initialNumber + 1);
+        expect(ctrl.posts[index].comments[initialNumber].body).toBe(commentBody);
+    });
+&nbsp;
+    it('edits a comment', function () {
+        var commentBody = "Added comment";
+        var changedComment = "Changed comment";
+        var commentAuthor = "Test";
+        ctrl.username = "Test";
+        ctrl.newComment = commentBody;
+&nbsp;
+        // Use the first post as example.
+        var postIndex = 0;
+        var post = ctrl.posts[postIndex];
+        var postID = post.id;
+&nbsp;
+&nbsp;
+        // Add one comment first to ensure we have one to edit.
+        ctrl.addComment(postID);
+        ctrl._resolveTestPromises();
+        ctrl.loadPosts();
+        ctrl._resolveTestPromises();
+        var initialNumber = ctrl.posts[postIndex].comments.length;
+&nbsp;
+        // Use the first comment to test, which maybe newly added or an existing one.
+        var commentIndex = 0;
+        var commentID = post.comments[commentIndex].commentId;
+&nbsp;
+        // Edit comment authored by the same one.
+        ctrl.editComment(postID, commentID, changedComment, commentAuthor);
+        ctrl._resolveTestPromises();
+        ctrl.loadPosts();
+        ctrl._resolveTestPromises();
+&nbsp;
+        // See if the new comment is really posted.
+        expect(ctrl.posts[postIndex].comments.length).toBe(initialNumber);
+        expect(ctrl.posts[postIndex].comments[commentIndex].body).toBe(changedComment);
+    });
+})</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Mar 11 2016 01:56:25 GMT-0600 (CST)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!-- Post panel -->
+<div class="col-lg-9 col-md-9 col-sm-12 col-sx-12">
+    <div id="shareBox" class="well well-sm">
+        <input type="text" class="form-control" placeholder="share something..." ng-model='vm.newPost'>
+        <div class="postBtns" role="group">
+            <span> {{ imageFile.name }} </span>
+            <span class="btn btn-default btn-file"><span class="glyphicon glyphicon-camera"></span>
+            <input type="file" accept="image/*" onchange="angular.element(this).scope().vm.setFile(this)">
+            </span>
+            <button class="btn btn-default btn-md" id='addPostBtn' ng-click='vm.addPost()'>Post</button>
+            <button class="btn btn-default btn-md" id="clearPost" ng-click='vm.clearNewPost()'>Clear</button>
+        </div>
+    </div>
+
+    <!-- Search panel -->
+    <div class="col-lg-6 col-md-6 col-sm-9 col-sx-9 col-lg-offset-6 col-md-offset-6 col-sm-offset-3 col-xs-offset-3">
+        <div class="input-group input-group-md">
+            <input type="text" class="form-control" placeholder="Search Posts" ng-model="vm.searchKeyword">
+            <span class="input-group-btn"><button type="submit" id="filterBtn" class="btn btn-default">Search
+                </button></span>
+        </div>
+    </div>
+    <br/><br>
+
+    <!-- Feed -->
+    <div id="posts">
+        <div class="post well well-sm" ng-repeat='post in vm.posts | selectiveFilter: vm.searchKeyword'>
+            <span class="postAuthor">  {{ post.author}}</span>
+            <br/>
+            <span class="postDate">{{ post.date }}  </span>
+            <br/>
+
+            <p class="postBody" ng-hide="post.postEditEnabled">
+                {{ post.body}}
+                <!--Edit button only shows when the logged in user owns this post-->
+            <span class="editPostBtn" ng-show='post.ifPostOwned' ng-click="post.postEditEnabled=!post.postEditEnabled">
+                <span class="glyphicon glyphicon-pencil"></span>
+                Edit   
+            </span>
+            </p>
+
+            <!-- edit post -->
+            <p class="postBody" ng-show="post.postEditEnabled">
+                <input ng-model='post.newBody'>
+            <span class="editPostSaveBtn"
+                  ng-click="post.postEditEnabled=!post.postEditEnabled; vm.editPost(post.author, post.id, post.newBody)">
+                <span class="glyphicon glyphicon-pencil"></span>
+                Save   
+            </span>
+            </p>
+
+            <img class="postImage" ng-src="{{ post.img }}"/>
+
+            <div class="comments">
+                <div class="comment" ng-repeat='comment in post.comments'>
+                    <span class="commentDate"> {{ comment.date }}</span>
+                    <br/>
+                    <span class="commentAuthor">{{ comment.author}} </span>
+
+                <span ng-hide="comment.commentEditEnabled">
+                    <span> {{ comment.body}} </span>
+                    <!--Edit button only shows when the logged in user owns this comment-->
+                    <span class="editCommentBtn" ng-show='comment.ifCommentOwned'  ng-click='comment.commentEditEnabled=!comment.commentEditEnabled'>
+                        <span class="glyphicon glyphicon-pencil"></span>
+                    </span> 
+                </span>
+
+                <span ng-show="comment.commentEditEnabled">
+                    <input ng-model='comment.newBody'>
+                    <span class="editCommentSaveBtn"
+                          ng-click="comment.commentEditEnabled=!comment.commentEditEnabled; vm.editComment(post.id, comment.commentId, comment.newBody, comment.author)">
+                        <span class="glyphicon glyphicon-pencil">Save</span>
+                    </span>
+                </span>
+
+                </div>
+            </div>
+            <input type="text" class="form-control" placeholder="Write a comment..." ng-model='post.newComment'
+                   ng-enter='vm.addComment(post.id, post.newComment)'>
+        </div>
+    </div> <!-- End posts -->
+</div> <!-- End column -->

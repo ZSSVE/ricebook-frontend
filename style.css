@@ -1,0 +1,363 @@
+body {
+    padding: 10rem 2em 2em;
+    font-family: Arial, Verdana, sans-serif;
+    font-size: 1.5em;
+    background: rgb(229, 242, 255) url(http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/swirl_pattern.png);
+}
+
+#registerForm {
+    padding: 2em 2em 2em;
+    background-color: #ede9de;
+    opacity: 0.9;
+}
+
+#loginPage {
+    padding: 2em 2em 2em;
+    background-color: #ede9de;
+    opacity: 0.9;
+
+}
+
+#systemMsg {
+    color: #707070;
+}
+
+/* Carousel Styling */
+.slide1 {
+    height: 30em;
+    background: url('img/slide1.jpg') no-repeat center;
+    background-size: cover;
+}
+
+.slide2 {
+    height: 30em;
+    background: url('img/slide2.jpg') no-repeat center;
+    background-size: cover;
+}
+
+.carousel-caption h1 {
+    font-size: 5.4em;
+    font-family: 'Pacifico', cursive;
+    padding-bottom: .4em;
+    color: #fba827;
+}
+
+#theCarousel {
+    position: relative;
+    top: -6em;
+    width: 100%;
+}
+
+.hidden {
+    display: none;
+}
+
+.well#shareBox {
+    background-color: #f8dc0b;
+    text-align: right;
+}
+
+#username {
+    border: thin solid #cccccc;
+    font-size: 90%;
+}
+
+.currentInfo, #updateInfo, #currentProfilePhoto {
+    line-height: 2em;
+    padding: 1em;
+    font-size: 1em;
+    background-color: #ede9de;
+    opacity: 0.95;
+}
+
+#currentProfile {
+    line-height: 2em;
+    padding: 1em;
+    font-size: 1em;
+    background-color: #ede9de;
+    opacity: 0.95;
+
+}
+
+.updateMsg {
+    font-size: 0.9em;
+    /*color: #707070;*/
+    color: #fba827;
+}
+
+#profileAvatar {
+    padding: 1em 2em;
+    /*margin-bottom: 2em;*/
+    width: 90%;
+    margin: 1em auto;
+}
+#updateProfileForm{
+    margin-top: 2em;
+}
+
+img.avatar {
+    width: 60%;
+    margin: 0.5em auto;
+}
+
+.followingName, .userName {
+    padding: 1em 0.5em;
+}
+
+.followingStatus, .userStatus {
+    padding: 0.5em;
+    font-style: italic;
+
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+ .followings {
+    border: thin solid rgb(217, 217, 217);
+    padding: 1em 0.5em;
+    background-color: white;
+    border-radius: 10px;
+    margin-bottom: 1em;
+}
+ .unfollowBtn{
+     color: rgb(191, 191, 191);
+ }
+.unfollowBtn:hover,.unfollowBtn:active {
+    color: black;
+    text-decoration: underline;
+}
+
+#userStatus {
+    border: thin solid rgb(217, 217, 217);
+    padding: 1em 1em;
+    background-color: white;
+    border-radius: 10px;
+    margin-bottom: 1em;
+}
+
+.userSidebarName {
+    background-color: #ede9de;
+    opacity: 0.8;
+    padding: 0.5em 0.5em;
+}
+
+.postImage {
+    display: block;
+    margin: 0.5em auto;
+    max-width: 90%;
+}
+
+.post {
+    padding: 1em;
+    background-color: white;
+    border-radius: 10px;
+    margin-bottom: 0.8em;
+}
+
+.postAuthor {
+    font-weight: bold;
+    color: #fba827;
+    font-size: 1.2em;
+}
+
+.comments {
+    border-left: thin solid rgb(217, 217, 217);
+    /*border: thin solid rgb(217, 217, 217);*/
+    background-color: white;
+    overflow: scroll;
+    max-height: 8em;
+    opacity: 0.8;
+    margin-bottom: 0.2em;
+    padding: 1em;
+}
+
+.comment {
+    margin-bottom: 0.4em;
+    /*padding: 1em;*/
+}
+
+.commentAuthor {
+    font-weight: bold;
+}
+
+.commentDate, .postDate {
+    color: #cccccc;
+    font-size: 0.8em;
+}
+
+.editCommentBtn {
+    font-size: 0.8em;
+    color: #cccccc;
+}
+
+.editCommentBtn:hover, .editCommentBtn:active {
+    font-size: 0.8em;
+    color: black;
+    text-decoration: underline;
+}
+
+.editPostBtn, .commentPostBtn {
+    font-size: 0.8em;
+    color: #bfbfbf;
+}
+
+.editPostBtn:hover, .editPostBtn:active, .commentPostBtn:hover, .commentPostBtn:active {
+    font-size: 0.8em;
+    color: black;
+    text-decoration: underline;
+}
+
+.form-control {
+    border: none;
+
+}
+
+#inlineCenter li {
+    display: inline-block;
+}
+
+.profileSectionTitle {
+    text-align: center;
+    padding: 0.5em;
+    color: #bfbfbf;
+    margin: 0 auto;
+}
+
+/*Navigation Bar*/
+.Navigation {
+    background-color: #fba827;
+    border-color: #fba827;
+}
+
+.Navigation .navbar-brand {
+    color: #f9f6f6;
+}
+
+.Navigation .navbar-brand:hover,
+.Navigation .navbar-brand:focus {
+    color: #9f9d96;
+}
+
+.Navigation .navbar-text {
+    color: #f9f6f6;
+}
+
+.Navigation .navbar-nav > li > a {
+    color: #f9f6f6;
+}
+
+#ngLink {
+    color: #f9f6f6;
+}
+
+#ngLink:hover, #ngLink:focus {
+    color: #9f9d96;
+}
+
+.Navigation .navbar-nav > li > a:hover,
+.Navigation .navbar-nav > li > a:focus {
+    color: #9f9d96;
+}
+
+.Navigation .navbar-nav > li > .dropdown-menu {
+    background-color: #fba827;
+}
+
+.Navigation .navbar-nav > li > .dropdown-menu > li > a {
+    color: #f9f6f6;
+}
+
+.Navigation .navbar-nav > li > .dropdown-menu > li > a:hover,
+.Navigation .navbar-nav > li > .dropdown-menu > li > a:focus {
+    color: #9f9d96;
+    background-color: #fba827;
+}
+
+.Navigation .navbar-nav > li > .dropdown-menu > li > .divider {
+    background-color: #fba827;
+}
+
+.Navigation .navbar-nav .open .dropdown-menu > .active > a,
+.Navigation .navbar-nav .open .dropdown-menu > .active > a:hover,
+.Navigation .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #9f9d96;
+    background-color: #fba827;
+}
+
+.Navigation .navbar-nav > .active > a,
+.Navigation .navbar-nav > .active > a:hover,
+.Navigation .navbar-nav > .active > a:focus {
+    color: #9f9d96;
+    background-color: #fba827;
+}
+
+.Navigation .navbar-nav > .open > a,
+.Navigation .navbar-nav > .open > a:hover,
+.Navigation .navbar-nav > .open > a:focus {
+    color: #9f9d96;
+    background-color: #fba827;
+}
+
+.Navigation .navbar-toggle {
+    border-color: #fba827;
+}
+
+.Navigation .navbar-toggle:hover,
+.Navigation .navbar-toggle:focus {
+    background-color: #fba827;
+}
+
+.Navigation .navbar-toggle .icon-bar {
+    background-color: #f9f6f6;
+}
+
+.Navigation .navbar-collapse,
+.Navigation .navbar-form {
+    border-color: #f9f6f6;
+}
+
+.Navigation .navbar-link {
+    color: #f9f6f6;
+}
+
+.Navigation .navbar-link:hover {
+    color: #9f9d96;
+}
+
+@media (max-width: 767px) {
+    .Navigation .navbar-nav .open .dropdown-menu > li > a {
+        color: #f9f6f6;
+    }
+
+    .Navigation .navbar-nav .open .dropdown-menu > li > a:hover,
+    .Navigation .navbar-nav .open .dropdown-menu > li > a:focus {
+        color: #9f9d96;
+    }
+
+    .Navigation .navbar-nav .open .dropdown-menu > .active > a,
+    .Navigation .navbar-nav .open .dropdown-menu > .active > a:hover,
+    .Navigation .navbar-nav .open .dropdown-menu > .active > a:focus {
+        color: #9f9d96;
+        background-color: #fba827;
+    }
+}
+

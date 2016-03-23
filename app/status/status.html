@@ -1,0 +1,21 @@
+<!-- User's status panel -->
+<div id="userStatus">
+
+    <div
+            class="userSidebarName"><span class="userName">{{ vm.username
+        }}</span></div>
+    <img class="avatar img-circle center-block" ng-src="{{ vm.avatar }}"/>
+    <!-- StatusCtrl -->
+    <p class="userStatus">{{ vm.status }}</p>
+
+    <div class="input-group input-group-sm">
+
+        <input type="text" class="form-control" placeholder="What's in your mind..." id="newHeadLine"
+               ng-model="vm.newStatus">
+        <span class="input-group-btn">
+        <button class="btn btn-default btn-xs" id='newStatusBtn' ng-click='vm.setStatus()'>
+            update</button>
+            </span>
+    </div>
+
+</div>

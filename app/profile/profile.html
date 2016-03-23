@@ -1,0 +1,130 @@
+<!-- Collapsible navigation bar -->
+<nav class="navbar navbar-inverse navbar-fixed-top Navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target="#myNavBar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Rice Book</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavBar">
+            <ul class="nav navbar-nav">
+                <li><a href="#/main">Home</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Favorite
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a id="linkToProfile" href="#">My Books </a></li>
+                        <li><a id="logOut" href="#">Message</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right" id="inlineCenter">
+                <li class="active"><a href="#/profile"><span
+                        class="glyphicon glyphicon-user"></span> My Profile</a>
+                </li>
+                <li ng-click='vm.logout()' id="ngLink"><span
+                        class="glyphicon glyphicon-log-in"></span> Log out</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row">
+        <!-- user profile -->
+        <div class="col-lg-5 col-md-5 col-sm-12 col-sx-12"
+             id="currentProfilePhoto">
+
+            <h2 class="profileSectionTitle">Your Profile</h2>
+            <div class="col-lg-8 col-md-8 col-sm-12 col-sx-12">
+                <img id="profileAvatar" class="avatar img-circle center-block "
+                     ng-src="{{ vm.avatar }}"/>
+            </div>
+            <br/>
+            <br/>
+            <div class="col-lg-10 col-md-10 col-sm-12 col-sx-12">
+                <p class="input-group-addon currentValue" id="currentUserName">
+                    {{ vm.username }}</p><br/>
+                <p class="input-group-addon currentValue" id="currentEmail">{{
+                    vm.email }}</p><br/>
+                <p class="input-group-addon currentValue" id="currentZipcode">{{
+                    vm.zipcode}}</p><br/>
+                <p class="input-group-addon currentValue hidden">{{
+                    vm.password}}</p>
+            </div>
+        </div>
+
+        <!-- Updating user's info -->
+        <div class="col-lg-6 col-md-6 col-sm-12 col-sx-12 col-lg-offset-1 col-md-offset-1"
+             id="updateInfo">
+            <h2 class="profileSectionTitle">Update Profile</h2>
+            <div id="updateProfileForm">
+                <div class="input-group input-group-md">
+                    <label class="input-group-btn">
+                        <button class="btn btn-default" type="button">Email</button>
+                    </label>
+                    <input class="form-control userInfo" ng-model="vm.newEmail"
+                           ng-change="vm.validateEmail()">
+                </div>
+                <span class="updateMsg"> {{vm.emailMsg}}</span>
+                <br/>
+
+                <div class="input-group input-group-md">
+                    <label class="input-group-btn">
+                        <button class="btn btn-default" type="button">Zipcode
+                        </button>
+                    </label>
+                    <input class="form-control userInfo" placeholder="5 digits"
+                           ng-model="vm.newZipcode"
+                           ng-change="vm.validateZipcode()">
+                </div>
+                <span class="updateMsg">{{ vm.zipcodeMsg }}</span>
+                <br/>
+
+                <div class="input-group input-group-md">
+                    <label for="password" class="input-group-btn">
+                        <button class="btn btn-default" type="button">Password
+                        </button>
+                    </label>
+                    <input class="form-control userInfo" type="password"
+                           name="password" id="password"
+                           ng-model="vm.newPassword"
+                           ng-change="vm.validatePassword()">
+
+                </div>
+                <br/>
+
+                <div class="input-group input-group-md">
+                    <label for="passwordConfirm" class="input-group-btn">
+                        <button class="btn btn-default" type="button">Password
+                            Confirmation
+                        </button>
+                    </label>
+                    <input class="form-control userInfo" type="password"
+                           name="passwordConfirm" id="passwordConfirm"
+                           ng-model="vm.newPasswordConfirmation"
+                           ng-change="vm.validatePassword()">
+
+                </div>
+                <span class="updateMsg"> {{ vm.passwordMsg }}</span>
+                <br/>
+
+            <span class="btn btn-default btn-file btn-warning btn-sm"><span
+                    class="glyphicon glyphicon-camera"> </span>
+            <input type="file" accept="image/*"
+                   onchange="angular.element(this).scope().vm.setFile(this)">Change Photo</span>
+                <button class="btn btn-warning btn-sm" id="updateBtn"
+                        ng-click='vm.updateProfile()'>Update
+                </button>
+                <span>{{ imageFile.name }}</span>
+            </div>
+        </div>
+
+    </div>
+</div>
+
