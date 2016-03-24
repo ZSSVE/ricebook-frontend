@@ -1,8 +1,8 @@
 ;(function () {
     angular.module('riceBookApp').controller('FollowingCtrl', FollowingCtrl);
 
-    FollowingCtrl.$inject = ['api','$location'];
-    function FollowingCtrl(api,$location) {
+    FollowingCtrl.$inject = ['api', '$location'];
+    function FollowingCtrl(api, $location) {
 
         var vm = this;
         vm.followings = [];
@@ -80,14 +80,27 @@
         function addFollowing() {
             if (vm.newFollowing) {
                 vm.followMsg = "";
-                api.addFollowing({'user': vm.newFollowing}).$promise.then(function (result) {
-                    getFollowings();
-                    vm.newFollowing = null;
+                api.getFollowings().$promise.then(function (result) {
+                    // Check if number of following is increased by one to verify
+                    // if the username entered is valid.
+                    var beforeAdding = result.following.length;
+                    var afterAdding;
+                    api.addFollowing({'user': vm.newFollowing}).$promise.then(function (result) {
+                        getFollowings();
+                        vm.newFollowing = null;
+                        api.getFollowings().$promise.then(function (result) {
+                            afterAdding = result.following.length;
+                            if (!(afterAdding - beforeAdding === 1)) {
+                                vm.followMsg = 'This user doesn\'t exist';
+                            }
+                        })
+                    })
                 }, function (error) {
-                    vm.followMsg = 'This user doesn\'t exist';
-                    //$location.path('/');
+                    vm.followMsg = "You need to log in";
+                    $location.path('/');
                 });
-            } else {
+            }
+            else {
                 vm.followMsg = "Please enter a username"
             }
         }
