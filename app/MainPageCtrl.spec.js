@@ -1,7 +1,6 @@
-describe('Test logout of MainPageCtrl', function () {
+describe('The main page', function () {
     var helper = testHelper;
     var ctrl;
-    var promises = [];
 
     beforeEach(module('riceBookApp'));
 
@@ -12,7 +11,7 @@ describe('Test logout of MainPageCtrl', function () {
     beforeEach(inject(function ($controller, $rootScope, $q, api) {
         helper.init($q);
         ctrl = $controller('MainPageCtrl', {
-            'api': api,
+            'api': api
         });
         ctrl._resolveTestPromises = function () {
             helper.resolveTestPromises($rootScope);
@@ -20,7 +19,7 @@ describe('Test logout of MainPageCtrl', function () {
         ctrl._resolveTestPromises();
     }));
 
-    it('should log out a user', inject(function (UserService) {
+    it('logs out a user', inject(function (UserService) {
         expect(UserService.username).toBeDefined();
         ctrl.logout();
         ctrl._resolveTestPromises();

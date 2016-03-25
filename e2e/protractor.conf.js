@@ -1,27 +1,27 @@
 exports.config = {
-	allScriptsTimeout: 11000,
-	specs: [ 'scenarios.js' ],
-	capabilities: {
-		'browserName': 'chrome',
+    allScriptsTimeout: 11000,
+    specs: ['scenarios.js'],
+    capabilities: {
+        'browserName': 'chrome',
         'chromeOptions': {
-             'args': ['incognito', 'disable-extensions' ]
+            'args': ['incognito', 'disable-extensions']
         }
-	},
-	
-	directConnect: true,
-	baseUrl: 'http://localhost:8080/',
+    },
+
+    directConnect: true,
+    baseUrl: 'http://localhost:8080/',
     rootElement: '#ngAppRoot',
 
-	framework: 'jasmine2',
-	jasmineNodeOpts: {
+    framework: 'jasmine2',
+    jasmineNodeOpts: {
         showColors: true,
-		defaultTimeoutInterval: 30000
-	},
+        defaultTimeoutInterval: 30000
+    },
 
-    onPrepare: function() {
+    onPrepare: function () {
         var jr = require('jasmine-reporters');
         jasmine.getEnv().addReporter(new jr.JUnitXmlReporter({
-             savePath: './e2e-results'
+            savePath: './e2e-results'
         }));
         jasmine.getEnv().addReporter(new jr.TapReporter())
     }

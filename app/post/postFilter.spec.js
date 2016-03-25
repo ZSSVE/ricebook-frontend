@@ -11,7 +11,7 @@ describe('The filter for posts', function () {
     beforeEach(inject(function ($controller, $rootScope, $q, api) {
         helper.init($q);
         ctrl = $controller('PostCtrl', {
-            'api': api,
+            'api': api
         });
         ctrl._resolveTestPromises = function () {
             helper.resolveTestPromises($rootScope);

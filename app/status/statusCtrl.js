@@ -3,8 +3,8 @@
     angular.module('riceBookApp')
         .controller('StatusCtrl', StatusCtrl);
 
-    StatusCtrl.$inject = ['$http', 'api', 'UserService'];
-    function StatusCtrl($http, api, UserService) {
+    StatusCtrl.$inject = ['api', 'UserService', '$location'];
+    function StatusCtrl(api, UserService, $location) {
 
         var vm = this;
         vm.getUsername = getUsername;
@@ -22,7 +22,7 @@
         // Get the username and avatar of the current logged-in-user from the server.
         //
         // The result is saved into the UserService.
-        function updateUserInfo(){
+        function updateUserInfo() {
             api.getAvatar().$promise.then(function (result) {
                 UserService.avatar = result.pictures[0].picture;
                 UserService.username = result.pictures[0].username;

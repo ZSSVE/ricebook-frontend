@@ -11,7 +11,7 @@ describe('Post controller', function () {
     beforeEach(inject(function ($controller, $rootScope, $q, api) {
         helper.init($q);
         ctrl = $controller('PostCtrl', {
-            'api': api,
+            'api': api
         });
         ctrl._resolveTestPromises = function () {
             helper.resolveTestPromises($rootScope);
@@ -112,4 +112,4 @@ describe('Post controller', function () {
         expect(ctrl.posts[postIndex].comments.length).toBe(initialNumber);
         expect(ctrl.posts[postIndex].comments[commentIndex].body).toBe(changedComment);
     });
-})
+});

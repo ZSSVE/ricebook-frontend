@@ -21,25 +21,25 @@ var testHelper;
             'author': 'Eric',
             'date': 'Today',
             'body': '..test post 1..',
-            'comments': [],
+            'comments': []
         }, {
             'id': 2,
             'author': 'Test',
             'date': 'Jan 01 2015',
             'body': '..test post 2..',
-            'comments': [],
+            'comments': []
         }, {
             'id': 3,
             'author': 'Test',
             'date': 'Now',
             'body': '..test post 3,Jan 01 2015..',
-            'comments': [],
+            'comments': []
         }, {
             'id': 4,
             'author': 'Test',
             'date': 'Feu 12 2015',
             'body': '..test post 4..',
-            'comments': [],
+            'comments': []
         }],
 
         login: function (payload) {//Check params !!!
@@ -83,7 +83,7 @@ var testHelper;
                 'author': 'Test',
                 'date': 'Now',
                 'body': payload.body,
-                'comments': [],
+                'comments': []
             };
             mockApiService.posts.push(newPost);
             return makePromise({
@@ -160,7 +160,7 @@ var testHelper;
             return makePromise(
                 {'status': "Will not change"}
             );
-        },
+        }
     };
 
     var resolveTestPromises = function (rootScope) {

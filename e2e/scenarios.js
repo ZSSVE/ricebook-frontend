@@ -1,4 +1,4 @@
-describe('End to End test for log in functionality of the front-end of the webapp', function () {
+describe('The log part of the webapp', function () {
     'use strict';
 
     beforeEach(function () {
@@ -22,7 +22,7 @@ describe('End to End test for log in functionality of the front-end of the webap
     });
 });
 
-describe('End to End test for register of the front-end of the webapp', function () {
+describe('The registration part of the webapp', function () {
     'use strict';
 
     beforeEach(function () {
@@ -49,7 +49,7 @@ describe('End to End test for register of the front-end of the webapp', function
     });
 });
 
-describe('End to End test for other functionalitis of the front-end of the webapp', function () {
+describe('The webapp', function () {
     'use strict';
 
     beforeEach(function () {
@@ -147,7 +147,7 @@ describe('End to End test for other functionalitis of the front-end of the webap
         expect(beforeAdding).toEqual(afterRemoving);
     });
 
-    it('searched for "Only One Post Like This" and verify only one post shows and verify the author', function () {
+    it('searches for "Only One Post Like This" and verifies only one post shows and verify the author', function () {
         // Add a new following.
         var keyWord = "Only One Post Like This";
         element(by.model('vm.searchKeyword')).sendKeys(keyWord);
@@ -157,7 +157,6 @@ describe('End to End test for other functionalitis of the front-end of the webap
         //var afterFilter = element.all(by.repeater('post in vm.posts | selectiveFilter: vm.searchKeyword')).count();
         expect(posts.count()).toEqual(1);
         expect(posts.get(0).element(by.binding('post.author')).getText()).toEqual("sz32test")
-
     });
 
     it('navigates to the profile view and verifies the page is loaded', function () {
@@ -166,10 +165,9 @@ describe('End to End test for other functionalitis of the front-end of the webap
             return element(by.id('profileAvatar')).isDisplayed();
         }, 5000);
         expect(element(by.id('profileAvatar')).isDisplayed()).toBeTruthy();
-
     });
 
-    it('Update the user\'s email', function () {
+    it('updates the user\'s email', function () {
         // Navigates to profile view.
         element(by.id('profileLink')).click();
         browser.wait(function () {
@@ -185,7 +183,7 @@ describe('End to End test for other functionalitis of the front-end of the webap
         expect(element(by.id('currentEmail')).getText()).toEqual(newEmail);
     });
 
-    it('Update the user\'s zipcode', function () {
+    it('updates the user\'s zipcode', function () {
         // Navigates to profile view.
         element(by.id('profileLink')).click();
         browser.wait(function () {
@@ -201,7 +199,7 @@ describe('End to End test for other functionalitis of the front-end of the webap
         expect(element(by.id('currentZipcode')).getText()).toEqual(newZipcode);
     });
 
-    it('Update the user\'s password', function () {
+    it('updates the user\'s password', function () {
         // Navigates to profile view.
         element(by.id('profileLink')).click();
 

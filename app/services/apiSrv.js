@@ -41,7 +41,7 @@
                 setZipcode: {method: 'PUT', params: {endpoint: 'zipcode'}},
                 setPassword: {method: 'PUT', params: {endpoint: 'password'}},
 
-                //Functions for followings.
+                // Functions for followings.
                 getFollowings: {method: 'GET', params: {endpoint: 'following'}},
                 addFollowing: {method: 'PUT', params: {endpoint: 'following'}},
                 removeFollowing: {
@@ -61,8 +61,7 @@
                     headers: {'Content-Type': undefined},
                     transformRequest: resourceUploadFile,
                     params: {endpoint: 'picture'}
-                },
-            })
-            ;
+                }
+            });
     }
 })();

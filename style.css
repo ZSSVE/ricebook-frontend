@@ -91,7 +91,8 @@ body {
     width: 90%;
     margin: 1em auto;
 }
-#updateProfileForm{
+
+#updateProfileForm {
     margin-top: 2em;
 }
 
@@ -131,17 +132,19 @@ img.avatar {
     display: block;
 }
 
- .followings {
+.followings {
     border: thin solid rgb(217, 217, 217);
     padding: 1em 0.5em;
     background-color: white;
     border-radius: 10px;
     margin-bottom: 1em;
 }
- .unfollowBtn{
-     color: rgb(191, 191, 191);
- }
-.unfollowBtn:hover,.unfollowBtn:active {
+
+.unfollowBtn {
+    color: rgb(191, 191, 191);
+}
+
+.unfollowBtn:hover, .unfollowBtn:active {
     color: black;
     text-decoration: underline;
 }

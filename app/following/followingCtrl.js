@@ -99,11 +99,9 @@
                     vm.followMsg = "You need to log in";
                     $location.path('/');
                 });
-            }
-            else {
+            } else {
                 vm.followMsg = "Please enter a username"
             }
         }
-
     }
 })();

@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites>
- <testsuite name="End to End test for log in functionality of the front-end of the webapp" timestamp="2016-03-24T00:03:55" hostname="localhost" time="3.443" errors="0" tests="1" skipped="0" disabled="0" failures="0">
-  <testcase classname="End to End test for log in functionality of the front-end of the webapp" name="logs in as my test user and validates current location" time="3.439" />
+ <testsuite name="The log part of the webapp" timestamp="2016-03-25T00:04:02" hostname="localhost" time="2.797" errors="0" tests="1" skipped="0" disabled="0" failures="0">
+  <testcase classname="The log part of the webapp" name="logs in as my test user and validates current location" time="2.796" />
  </testsuite>
- <testsuite name="End to End test for register of the front-end of the webapp" timestamp="2016-03-24T00:03:58" hostname="localhost" time="1.92" errors="0" tests="1" skipped="0" disabled="0" failures="0">
-  <testcase classname="End to End test for register of the front-end of the webapp" name="registers a new user and validates registration message" time="1.92" />
+ <testsuite name="The registration part of the webapp" timestamp="2016-03-25T00:04:05" hostname="localhost" time="1.776" errors="0" tests="1" skipped="0" disabled="0" failures="0">
+  <testcase classname="The registration part of the webapp" name="registers a new user and validates registration message" time="1.776" />
  </testsuite>
- <testsuite name="End to End test for other functionalitis of the front-end of the webapp" timestamp="2016-03-24T00:04:00" hostname="localhost" time="19.945" errors="0" tests="8" skipped="0" disabled="0" failures="0">
-  <testcase classname="End to End test for other functionalitis of the front-end of the webapp" name="creates a new post and validates the post appears in the feed" time="2.75" />
-  <testcase classname="End to End test for other functionalitis of the front-end of the webapp" name="updates the status headline and verifies the change" time="2.199" />
-  <testcase classname="End to End test for other functionalitis of the front-end of the webapp" name="adds one followed user and then removes this following" time="3.749" />
-  <testcase classname="End to End test for other functionalitis of the front-end of the webapp" name="searched for &quot;Only One Post Like This&quot; and verify only one post shows and verify the author" time="2.019" />
-  <testcase classname="End to End test for other functionalitis of the front-end of the webapp" name="navigates to the profile view and verifies the page is loaded" time="1.754" />
-  <testcase classname="End to End test for other functionalitis of the front-end of the webapp" name="Update the user&apos;s email" time="2.204" />
-  <testcase classname="End to End test for other functionalitis of the front-end of the webapp" name="Update the user&apos;s zipcode" time="2.128" />
-  <testcase classname="End to End test for other functionalitis of the front-end of the webapp" name="Update the user&apos;s password" time="3.139" />
+ <testsuite name="The webapp" timestamp="2016-03-25T00:04:07" hostname="localhost" time="17.803" errors="0" tests="8" skipped="0" disabled="0" failures="0">
+  <testcase classname="The webapp" name="creates a new post and validates the post appears in the feed" time="2.333" />
+  <testcase classname="The webapp" name="updates the status headline and verifies the change" time="1.875" />
+  <testcase classname="The webapp" name="adds one followed user and then removes this following" time="3.609" />
+  <testcase classname="The webapp" name="searches for &quot;Only One Post Like This&quot; and verifies only one post shows and verify the author" time="1.638" />
+  <testcase classname="The webapp" name="navigates to the profile view and verifies the page is loaded" time="1.705" />
+  <testcase classname="The webapp" name="updates the user&apos;s email" time="2.248" />
+  <testcase classname="The webapp" name="updates the user&apos;s zipcode" time="1.982" />
+  <testcase classname="The webapp" name="updates the user&apos;s password" time="2.413" />
  </testsuite>
 </testsuites>

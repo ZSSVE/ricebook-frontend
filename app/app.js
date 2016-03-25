@@ -1,10 +1,11 @@
 ;(function () {
-    'use strict'
+    'use strict';
 
     angular.module('riceBookApp', ['ngRoute', 'ngResource'])
         .config(config)
         .constant('apiURL', 'https://webdev-dummy.herokuapp.com');
 
+    config.$inject = ["$routeProvider"];
     function config($routeProvider) {
         $routeProvider
             .when('/', {
