@@ -21,8 +21,9 @@ describe('Shared resource controller', function () {
 
     it('can login and register the username', inject(function (UserService) {
         // Log in.
-        var user = "Test";
+        var user = "sz32test";
         ctrl.username = user;
+        ctrl.password = "ss";
         ctrl.login();
         ctrl._resolveTestPromises();
         // Verify UserService has username

@@ -1,7 +1,7 @@
 ;(function () {
     'use strict';
 
-    angular.module('riceBookApp', ['ngRoute', 'ngResource'])
+    angular.module('riceBookApp', ['ngRoute', 'ngResource','puElasticInput','monospaced.elastic'])
         .config(config)
         .constant('apiURL', 'https://webdev-dummy.herokuapp.com');
 

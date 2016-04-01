@@ -17,7 +17,7 @@
         <div class="input-group input-group-md">
             <input type="text" class="form-control" placeholder="Search Posts" ng-model="vm.searchKeyword">
             <span class="input-group-btn"><button type="submit" id="filterBtn" class="btn btn-default">Search
-                </button></span>
+            </button></span>
         </div>
     </div>
     <br/><br>
@@ -40,14 +40,24 @@
             </p>
 
             <!-- edit post -->
-            <p class="postBody" ng-show="post.postEditEnabled">
-                <input ng-model='post.newBody'>
-            <span class="editPostSaveBtn"
-                  ng-click="post.postEditEnabled=!post.postEditEnabled; vm.editPost(post.author, post.id, post.newBody)">
-                <span class="glyphicon glyphicon-pencil"></span>
-                Save   
-            </span>
-            </p>
+            <div class="container">
+                <form role="form">
+                    <div class="form-group">
+                        <div class="col-lg-8 col-md-8 col-sm-11 col-sx-11">
+                            <p class="postBody" ng-show="post.postEditEnabled">
+                            <textarea class="form-control animate msd-elastic: \n;" type="text"
+                                      ng-model='post.newBody'></textarea>
+                             <span class="editPostSaveBtn"
+                                   ng-click="post.postEditEnabled=!post.postEditEnabled; vm.editPost(post.author, post.id, post.newBody)">
+                                 <span class="glyphicon glyphicon-pencil"></span>
+                                  Save
+                             </span>
+                            </p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
 
             <img class="postImage" ng-src="{{ post.img }}"/>
 
@@ -60,18 +70,30 @@
                 <span ng-hide="comment.commentEditEnabled">
                     <span> {{ comment.body}} </span>
                     <!--Edit button only shows when the logged in user owns this comment-->
-                    <span class="editCommentBtn" ng-show='comment.ifCommentOwned'  ng-click='comment.commentEditEnabled=!comment.commentEditEnabled'>
+                    <span class="editCommentBtn" ng-show='comment.ifCommentOwned'
+                          ng-click='comment.commentEditEnabled=!comment.commentEditEnabled'>
                         <span class="glyphicon glyphicon-pencil"></span>
                     </span> 
                 </span>
 
-                <span ng-show="comment.commentEditEnabled">
-                    <input ng-model='comment.newBody'>
-                    <span class="editCommentSaveBtn"
-                          ng-click="comment.commentEditEnabled=!comment.commentEditEnabled; vm.editComment(post.id, comment.commentId, comment.newBody, comment.author)">
-                        <span class="glyphicon glyphicon-pencil">Save</span>
-                    </span>
-                </span>
+
+                    <div class="container">
+                        <form role="form">
+                            <div class="form-group">
+                                <div class="col-lg-8 col-md-8 col-sm-11 col-sx-11">
+                                    <p ng-show="comment.commentEditEnabled">
+                                         <textarea class="form-control animate msd-elastic: \n;" type="text"
+                                                   ng-model='comment.newBody'></textarea>
+                                         <span class="editCommentSaveBtn"
+                                               ng-click="comment.commentEditEnabled=!comment.commentEditEnabled; vm.editComment(post.id, comment.commentId, comment.newBody, comment.author)">
+                                             <span class="glyphicon glyphicon-pencil">Save</span>
+                                         </span>
+                                    </p>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
 
                 </div>
             </div>
