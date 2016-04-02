@@ -85,7 +85,7 @@ body {
     color: #fba827;
 }
 
-#profileAvatar {
+.profileAvatar {
     padding: 1em 2em;
     /*margin-bottom: 2em;*/
     width: 90%;

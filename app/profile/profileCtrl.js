@@ -25,6 +25,19 @@
         vm.setFile = setFile;
         $scope.imageFile = null;
         vm.newAvatar = null;
+        $scope.avatarEditEnabled = false;
+
+
+
+        //Corpped Avatar
+        $scope.cropper = {};
+        $scope.cropper.sourceImage = null;
+        $scope.cropper.croppedImage   = null;
+        $scope.bounds = {};
+        $scope.bounds.left = 0;
+        $scope.bounds.right = 0;
+        $scope.bounds.top = 0;
+        $scope.bounds.bottom = 0;
 
 
         // Update the username, avatar, email, and zipcode.
@@ -101,7 +114,7 @@
             if (vm.newPassword !== "" || vm.newPasswordConfirmation !== "") {
                 updatePassword();
             }
-            if (vm.newAvatar) {
+            if (vm.croppedImage) {
                 updateAvatar();
             }
         }
@@ -110,11 +123,12 @@
             $scope.$apply(function ($scope) {
                 $scope.imageFile = element.files[0];
             });
-            vm.newAvatar = $scope.imageFile;
+            //vm.newAvatar = $scope.imageFile; // TODO
+            $scope.cropper.sourceImage = $scope.imageFile;
         }
 
         function updateAvatar() {
-            api.setAvatar({'img': vm.newAvatar})
+            api.setAvatar({'img': $scope.cropper.croppedImage})
                 .$promise.then(function (result) {
                 vm.avatar = result.picture;
                 vm.newAvatar = null;
