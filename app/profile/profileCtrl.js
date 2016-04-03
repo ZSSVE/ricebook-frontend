@@ -22,9 +22,18 @@
         vm.validateEmail = validateEmail;
         vm.validateZipcode = validateZipcode;
         vm.validatePassword = validatePassword;
-        vm.setFile = setFile;
-        $scope.imageFile = null;
-        vm.newAvatar = null;
+        //vm.setFile = setFile;
+        //$scope.imageFile = null;
+        //vm.newAvatar = null;
+
+        $scope.cropper = {};
+        $scope.cropper.sourceImage = null;
+        $scope.cropper.croppedImage = null;
+        $scope.bounds = {};
+        $scope.bounds.left = 0;
+        $scope.bounds.right = 0;
+        $scope.bounds.top = 0;
+        $scope.bounds.bottom = 0;
 
 
         // Update the username, avatar, email, and zipcode.
@@ -101,27 +110,36 @@
             if (vm.newPassword !== "" || vm.newPasswordConfirmation !== "") {
                 updatePassword();
             }
-            if (vm.newAvatar) {
+            if ($scope.cropper.croppedImage) {
                 updateAvatar();
             }
         }
 
-        function setFile(element) {
-            $scope.$apply(function ($scope) {
-                $scope.imageFile = element.files[0];
-            });
-            vm.newAvatar = $scope.imageFile;
-        }
+        //function setFile(element) {
+        //    $scope.$apply(function ($scope) {
+        //        $scope.imageFile = element.files[0];
+        //    });
+        //    vm.newAvatar = $scope.imageFile;
+        //    $scope.cropper.sourceImage = $scope.imageFile;
+        //}
 
         function updateAvatar() {
-            api.setAvatar({'img': vm.newAvatar})
+            var blob = dataURItoBlob($scope.cropper.croppedImage);
+            api.setAvatar({'img': blob})
                 .$promise.then(function (result) {
                 vm.avatar = result.picture;
-                vm.newAvatar = null;
-                $scope.imageFile = null
+                UserService.avatar = result.picture;
+                $scope.cropper = {};
+                $scope.cropper.sourceImage = null;
+                $scope.cropper.croppedImage = null;
+                $scope.bounds = {};
+                $scope.bounds.left = 0;
+                $scope.bounds.right = 0;
+                $scope.bounds.top = 0;
+                $scope.bounds.bottom = 0;
             }, function (error) {
                 window.alert('Not Logged In');
-                $location.path('/');
+                //$location.path('/');
             });
         }
 
@@ -200,6 +218,26 @@
                 vm.passwordMsg = "";
                 return true;
             }
+        }
+
+        function dataURItoBlob(dataURI) {
+            // convert base64/URLEncoded data component to raw binary data held in a string
+            var byteString;
+            if (dataURI.split(',')[0].indexOf('base64') >= 0)
+                byteString = atob(dataURI.split(',')[1]);
+            else
+                byteString = unescape(dataURI.split(',')[1]);
+
+            // separate out the mime component
+            var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+
+            // write the bytes of the string to a typed array
+            var ia = new Uint8Array(byteString.length);
+            for (var i = 0; i < byteString.length; i++) {
+                ia[i] = byteString.charCodeAt(i);
+            }
+
+            return new Blob([ia], {type: mimeString});
         }
     }
 })();

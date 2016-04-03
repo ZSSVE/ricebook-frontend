@@ -33,12 +33,27 @@
              id="currentProfilePhoto">
 
             <h2 class="profileSectionTitle">Your Profile</h2>
-            <div class="col-lg-8 col-md-8 col-sm-12 col-sx-12">
+
+            <div class="col-lg-8 col-md-8 col-sm-12 col-sx-12" ng-hide="cropper.sourceImage!=null">
                 <img id="profileAvatar" class="avatar img-circle center-block "
                      ng-src="{{ vm.avatar }}"/>
             </div>
+            <div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-sx-12">
+                    <canvas class="col-lg-6 col-md-6 col-sm-12 col-sx-12" wdith="140" height="140" id="canvas"
+                            image-cropper image="cropper.sourceImage"
+                            cropped-image="cropper.croppedImage" crop-width="400" crop-height="200" touch-radius="30"
+                            crop-area-bounds="bounds" ng-show="cropper.sourceImage!=null"></canvas>
+
+                    <img class="col-lg-6 col-md-6 col-sm-12 col-sx-12 img-circle profile-img-size"
+                         ng-show="cropper.croppedImage!=null"
+                         ng-src="{{cropper.croppedImage}}"/>
+                </div>
+                <input type="file" img-cropper-fileread image="cropper.sourceImage"/>
+            </div>
             <br/>
             <br/>
+
             <div class="col-lg-10 col-md-10 col-sm-12 col-sx-12">
                 <p class="input-group-addon currentValue" id="currentUserName">
                     {{ vm.username }}</p><br/>
@@ -106,14 +121,13 @@
                 <span class="updateMsg"> {{ vm.passwordMsg }}</span>
                 <br/>
 
-            <span class="btn btn-default btn-file btn-warning btn-sm"><span
-                    class="glyphicon glyphicon-camera"> </span>
-            <input type="file" accept="image/*"
-                   onchange="angular.element(this).scope().vm.setFile(this)">Change Photo</span>
+                <!--<span class="btn btn-default btn-file btn-warning btn-sm"><span-->
+                <!--class="glyphicon glyphicon-camera"> </span>-->
+                <!--<input type="file" accept="image/*"-->
+                <!--onchange="angular.element(this).scope().vm.setFile(this)">Change Photo</span>-->
                 <button class="btn btn-warning btn-sm" id="updateBtn"
                         ng-click='vm.updateProfile()'>Update
                 </button>
-                <span>{{ imageFile.name }}</span>
             </div>
         </div>
 
