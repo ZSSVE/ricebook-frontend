@@ -32,7 +32,6 @@
         vm.validateEmail = validateEmail;
         vm.validateZipcode = validateZipcode;
         vm.validatePassword = validatePassword;
-
         vm.register = register;
 
         // Functions.

@@ -31,7 +31,7 @@ describe('The registration part of the webapp', function () {
 
     function register() {
         element(by.id('registerPaneBtn')).click();
-        element(by.id('accountName')).sendKeys('test');
+        element(by.id('accountName')).sendKeys('testUser');
         element(by.id('email')).sendKeys('test@rice.edu');
         element(by.id('zipcode')).sendKeys('12345');
         element(by.id('password')).sendKeys('111');
@@ -114,7 +114,7 @@ describe('The webapp', function () {
 
     it('adds one followed user and then removes this following', function () {
         // Add a new following.
-        var newFollowing = 'Follower';
+        var newFollowing = 'testUser';
         var beforeAdding = element.all(by.repeater('following in vm.followings')).count();
         element(by.model('vm.newFollowing')).sendKeys(newFollowing);
 
@@ -208,12 +208,12 @@ describe('The webapp', function () {
         }, 5000);
 
         // Update the password.
-        var newPassword = "testPassword";
+        var newPassword = "fog-sit-yellow";
         element(by.model('vm.newPassword')).sendKeys(newPassword);
         element(by.model('vm.newPasswordConfirmation')).sendKeys(newPassword);
         element(by.id('updateBtn')).click();
 
         // Verify the change.
-        expect(element(by.binding('passwordMsg')).getText()).toEqual("will not change");
+        expect(element(by.binding('passwordMsg')).getText()).toEqual("New password is saved!");
     });
 });

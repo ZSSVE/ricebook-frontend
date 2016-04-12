@@ -21,6 +21,7 @@
             },
             {
                 login: {method: 'POST', params: {endpoint: 'login'}},
+                loginFacebook:{method: 'GET', params: {endpoint: 'authFacebook'}},
                 logout: {method: 'PUT', params: {endpoint: 'logout'}},
                 register: {method: 'POST', params: {endpoint: 'register'}},
                 getStatus: {method: 'GET', params: {endpoint: 'status'}},
@@ -50,12 +51,13 @@
                 },
 
                 // Functions that requires uploading pictures
-                addPost: {
+                addPostFull: {
                     method: 'POST',
                     headers: {'Content-Type': undefined},
                     transformRequest: resourceUploadFile,
                     params: {endpoint: 'post'}
                 },
+                addPost:{method: 'POST', params: {endpoint: 'post'}},
                 setAvatar: {
                     method: 'PUT',
                     headers: {'Content-Type': undefined},

@@ -137,6 +137,7 @@
                 $scope.bounds.right = 0;
                 $scope.bounds.top = 0;
                 $scope.bounds.bottom = 0;
+                updateUserInfo();
             }, function (error) {
                 window.alert('Not Logged In');
                 //$location.path('/');

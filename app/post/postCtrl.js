@@ -106,7 +106,7 @@
         function addPost() {
             api.addPost({'body': vm.newPost, 'img': vm.newPostImg})
                 .$promise.then(function () {
-                vm.loadPosts();
+                vm.loadPosts();  //TODO
                 vm.newPost = "";
                 vm.newPostImg = null;
             }, function (error) {

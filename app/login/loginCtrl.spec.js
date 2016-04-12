@@ -23,7 +23,7 @@ describe('Shared resource controller', function () {
         // Log in.
         var user = "sz32test";
         ctrl.username = user;
-        ctrl.password = "ss";
+        ctrl.password = "w";
         ctrl.login();
         ctrl._resolveTestPromises();
         // Verify UserService has username

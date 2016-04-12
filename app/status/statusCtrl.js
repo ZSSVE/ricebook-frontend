@@ -55,7 +55,7 @@
 
         function setStatus() {
             api.setStatus({status: vm.newStatus}).$promise.then(function (result) {
-                vm.status = result.status;
+                vm.status = result.statuses[0].status;
                 vm.newStatus = null;
             }, function (error) {
                 window.alert('Not Logged In');
