@@ -89,7 +89,7 @@ describe('The webapp', function () {
 
         // Validate if the new post exists.
         var ifFound = false;
-        element.all(by.repeater('post in vm.posts | selectiveFilter: vm.searchKeyword')).then(function (posts) {
+        element.all(by.repeater("post in vm.posts| orderBy: '-date' |  selectiveFilter: vm.searchKeyword")).then(function (posts) {
 
             posts.forEach(function (post) {
                 var ifEqual = post.element(by.binding('post.body')).getText().then(function (text) {
@@ -152,7 +152,7 @@ describe('The webapp', function () {
         var keyWord = "Only One Post Like This";
         element(by.model('vm.searchKeyword')).sendKeys(keyWord);
         element(by.id('filterBtn')).click();
-        var posts = element.all(by.repeater('post in vm.posts | selectiveFilter: vm.searchKeyword'));
+        var posts = element.all(by.repeater("post in vm.posts| orderBy: '-date' |  selectiveFilter: vm.searchKeyword"));
 
         //var afterFilter = element.all(by.repeater('post in vm.posts | selectiveFilter: vm.searchKeyword')).count();
         expect(posts.count()).toEqual(1);

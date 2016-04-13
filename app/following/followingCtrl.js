@@ -10,7 +10,6 @@
         vm.unfollow = unfollow;
         vm.addFollowing = addFollowing;
         vm.followMsg = null;
-
         getFollowings();
 
         function getFollowings() {
@@ -70,7 +69,10 @@
 
         function unfollow(followingId) {
             api.removeFollowing({'user': followingId}).$promise.then(function (result) {
-                getFollowings();
+                var index = vm.followings.findIndex(function (following) {
+                    return following.username === followingId
+                });
+                vm.followings.splice(index, 1);
             }, function (error) {
                 window.alert('Not Logged In');
                 $location.path('/');
@@ -78,27 +80,47 @@
         }
 
         function addFollowing() {
-            if (vm.newFollowing) {
-                vm.followMsg = "";
-                api.getFollowings().$promise.then(function (result) {
-                    // Check if number of following is increased by one to verify
-                    // if the username entered is valid.
-                    var beforeAdding = result.following.length;
-                    var afterAdding;
-                    api.addFollowing({'user': vm.newFollowing}).$promise.then(function (result) {
-                        getFollowings();
-                        vm.newFollowing = null;
-                        api.getFollowings().$promise.then(function (result) {
-                            afterAdding = result.following.length;
-                            if (!(afterAdding - beforeAdding === 1)) {
-                                vm.followMsg = 'This user doesn\'t exist';
-                            }
-                        })
-                    })
-                }, function (error) {
-                    vm.followMsg = "You need to log in";
-                    $location.path('/');
+            var newFollowing = vm.newFollowing;
+            var newAvatar = null;
+            var newStatus = null;
+            if (newFollowing) {
+                var index = vm.followings.findIndex(function (following) {
+                    return following.username === newFollowing
                 });
+                if (index >= 0) {
+                    vm.followMsg = "You have already followed this account."
+                } else {
+                    vm.followMsg = "";
+                    api.addFollowing({'user': newFollowing}).$promise.then(function (result) {
+                        var followings = result.following;
+                        var index = followings.findIndex(function (following) {
+                            return following === newFollowing
+                        });
+                        if (index < 0) {
+                            vm.followMsg = 'This user doesn\'t exist';
+                        }
+                        else {
+                            api.getAvatar({'user': newFollowing}).$promise.then(function (result) {
+                                newAvatar = result.pictures[0].picture;
+                                api.getStatuses({'users': newFollowing}).$promise.then(function (result) {
+                                    newStatus = result.statuses[0].status;
+                                    vm.followings.push({
+                                        "username": newFollowing,
+                                        "status": newStatus,
+                                        "avatar": newAvatar
+                                    })
+                                }, function (error) {
+                                    window.alert('Not Logged In');
+                                    $location.path('/')
+                                })
+                            }, function (error) {
+                                window.alert('Not Logged In');
+                                $location.path('/');
+                            });
+                        }
+                        vm.newFollowing = null;
+                    });
+                }
             } else {
                 vm.followMsg = "Please enter a username"
             }

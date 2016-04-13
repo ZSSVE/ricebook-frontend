@@ -5,7 +5,6 @@
     PostCtrl.$inject = ['api', 'UserService', '$location', '$scope'];
     function PostCtrl(api, UserService, $location, $scope) {
         var vm = this;
-
         vm.loadPosts = loadPosts;
         vm.posts = [];
         loadPosts();
@@ -21,7 +20,6 @@
         vm.getUsername = getUsername;
         vm.setFile = setFile;
         $scope.imageFile = null;
-
 
         // Functions to be exposed.
 
@@ -53,24 +51,29 @@
             api.getPosts().$promise.then(function (result) {
                 var newPosts = [];
                 result.posts.forEach(function (post) {
-                    post.date = post.date.substr(0, 10) + ' ' + post.date.substr(11, 8);
-                    post.newBody = post.body;
-                    post.newComment = "";
-                    post.comments.forEach(function (comment) {
-                        comment.commentEditEnabled = false;
-                        comment.date = comment.date.substr(0, 10) + ' ' + comment.date.substr(11, 8);
-                        comment.newBody = comment.body;
-                        comment.ifCommentOwned = (vm.username == comment.author)
-                    });
-                    post.ifPostOwned = (vm.username == post.author);
-                    post.postEditEnabled = false;
-                    newPosts.push(post);
+                    var formattedPost = formatPost(post);
+                    newPosts.push(formattedPost);
                 });
                 vm.posts = newPosts;
             }, function (error) {
                 window.alert('Not Logged In');
                 $location.path('/');
             });
+        }
+
+        function formatPost(post) {
+            post.date = post.date.substr(0, 10) + ' ' + post.date.substr(11, 8);
+            post.newBody = post.body;
+            post.newComment = "";
+            post.comments.forEach(function (comment) {
+                comment.commentEditEnabled = false;
+                comment.date = comment.date.substr(0, 10) + ' ' + comment.date.substr(11, 8);
+                comment.newBody = comment.body;
+                comment.ifCommentOwned = (vm.username == comment.author)
+            });
+            post.ifPostOwned = (vm.username == post.author);
+            post.postEditEnabled = false;
+            return post
         }
 
         function clearNewPost() {
@@ -90,13 +93,16 @@
         // Change the body of the given post.
         //
         // Edition of posts of others will be rejected.
-        function editPost(postAuthor, postID, postBody) {
+        function editPost(postAuthor, postID, newBody) {
             if (postAuthor !== vm.username) {
                 window.alert("Unauthorized: You can't edit other's post");
             } else {
-                api.editPost({'id': postID, 'body': postBody})
-                    .$promise.then(function () {
-                    vm.loadPosts();
+                api.editPost({'id': postID, 'body': newBody})
+                    .$promise.then(function (res) {
+                    var index = vm.posts.findIndex(function (post) {
+                        return post.id === postID
+                    });
+                    vm.posts[index] = formatPost(res.posts[0])
                 }, function (error) {
                     window.alert('Unauthorized');
                 });
@@ -105,10 +111,10 @@
 
         function addPost() {
             api.addPost({'body': vm.newPost, 'img': vm.newPostImg})
-                .$promise.then(function () {
-                vm.loadPosts();  //TODO
-                vm.newPost = "";
-                vm.newPostImg = null;
+                .$promise.then(function (res) {
+                var newPost = formatPost(res.posts[0]);
+                vm.posts.unshift(newPost);
+                clearNewPost();
             }, function (error) {
                 window.alert('Not Logged In');
                 $location.path('/');
@@ -118,8 +124,11 @@
         // Push the comment to the post with the given ID.
         function addComment(postID, newComment) {
             api.addComment({'id': postID, 'body': newComment, 'commentId': -1})
-                .$promise.then(function () {
-                vm.loadPosts();
+                .$promise.then(function (res) {
+                var index = vm.posts.findIndex(function (post) {
+                    return post.id === postID
+                });
+                vm.posts[index] = formatPost(res.posts[0])
             }, function (error) {
                 window.alert('Not Logged In');
                 $location.path('/');
@@ -134,8 +143,11 @@
                 window.alert("Unauthorized: You can't edit other's comment");
             } else {
                 api.editComment({'id': postID, 'body': commentBody, 'commentId': commentID})
-                    .$promise.then(function () {
-                    vm.loadPosts();
+                    .$promise.then(function (res) {
+                    var index = vm.posts.findIndex(function (post) {
+                        return post.id === postID
+                    });
+                    vm.posts[index] = formatPost(res.posts[0])
                 }, function (error) {
                     window.alert('Unauthorized');
                 });

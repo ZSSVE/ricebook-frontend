@@ -24,7 +24,8 @@
 
     <!-- Feed -->
     <div id="posts">
-        <div class="post well well-sm" ng-repeat='post in vm.posts | selectiveFilter: vm.searchKeyword'>
+        <div class="post well well-sm"
+             ng-repeat="post in vm.posts| orderBy: '-date' |  selectiveFilter: vm.searchKeyword">
             <span class="postAuthor">  {{ post.author}}</span>
             <br/>
             <span class="postDate">{{ post.date }}  </span>

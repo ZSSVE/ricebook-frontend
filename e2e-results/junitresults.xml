@@ -1,68 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites>
- <testsuite name="The log part of the webapp" timestamp="2016-04-11T21:28:20" hostname="localhost" time="2.943" errors="0" tests="1" skipped="0" disabled="0" failures="0">
-  <testcase classname="The log part of the webapp" name="logs in as my test user and validates current location" time="2.941" />
+ <testsuite name="The log part of the webapp" timestamp="2016-04-12T23:35:24" hostname="localhost" time="4.333" errors="0" tests="1" skipped="0" disabled="0" failures="0">
+  <testcase classname="The log part of the webapp" name="logs in as my test user and validates current location" time="4.329" />
  </testsuite>
- <testsuite name="The registration part of the webapp" timestamp="2016-04-11T21:28:23" hostname="localhost" time="1.764" errors="0" tests="1" skipped="0" disabled="0" failures="0">
-  <testcase classname="The registration part of the webapp" name="registers a new user and validates registration message" time="1.764" />
+ <testsuite name="The registration part of the webapp" timestamp="2016-04-12T23:35:28" hostname="localhost" time="1.739" errors="0" tests="1" skipped="0" disabled="0" failures="0">
+  <testcase classname="The registration part of the webapp" name="registers a new user and validates registration message" time="1.739" />
  </testsuite>
- <testsuite name="The webapp" timestamp="2016-04-11T21:28:25" hostname="localhost" time="18.15" errors="0" tests="8" skipped="0" disabled="0" failures="1">
-  <testcase classname="The webapp" name="creates a new post and validates the post appears in the feed" time="2.695" />
-  <testcase classname="The webapp" name="updates the status headline and verifies the change" time="1.992" />
-  <testcase classname="The webapp" name="adds one followed user and then removes this following" time="3.058">
-   <failure type="exception" message="Failed: unknown error: Element is not clickable at point (213, 10). Other element would receive the click: &lt;div class=&quot;collapse navbar-collapse&quot; id=&quot;myNavBar&quot;&gt;...&lt;/div&gt;
-  (Session info: chrome=49.0.2623.112)
-  (Driver info: chromedriver=2.21.371459 (36d3d07f660ff2bc1bf28a75d1cdabed0983e7c4),platform=Mac OS X 10.11.4 x86_64)"><![CDATA[WebDriverError: unknown error: Element is not clickable at point (213, 10). Other element would receive the click: <div class="collapse navbar-collapse" id="myNavBar">...</div>
-  (Session info: chrome=49.0.2623.112)
-  (Driver info: chromedriver=2.21.371459 (36d3d07f660ff2bc1bf28a75d1cdabed0983e7c4),platform=Mac OS X 10.11.4 x86_64)
-    at WebDriverError (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/error.js:27:10)
-    at Object.checkLegacyResponse (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/error.js:580:13)
-    at /usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver.js:360:15
-    at Promise.invokeCallback_ (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/promise.js:1329:14)
-    at TaskQueue.execute_ (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/promise.js:2790:14)
-    at TaskQueue.executeNext_ (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/promise.js:2773:21)
-    at /usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/promise.js:2652:27
-    at /usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/promise.js:639:7
-    at process._tickCallback (node.js:368:9)
-Error
-    at [object Object].ElementArrayFinder.applyAction_ (/usr/local/lib/node_modules/protractor/built/element.js:380:21)
-    at [object Object].ElementArrayFinder.(anonymous function) [as click] (/usr/local/lib/node_modules/protractor/built/element.js:78:17)
-    at [object Object].ElementFinder.(anonymous function) [as click] (/usr/local/lib/node_modules/protractor/built/element.js:708:7)
-    at Object.<anonymous> (/Users/zssve/Courses/COMP531 Web Development/COMP531/frontend/e2e/scenarios.js:145:21)
-    at /usr/local/lib/node_modules/protractor/node_modules/jasminewd2/index.js:96:23
-    at new Promise (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/promise.js:1043:7)
-    at controlFlowExecute (/usr/local/lib/node_modules/protractor/node_modules/jasminewd2/index.js:82:18)
-    at TaskQueue.execute_ (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/promise.js:2790:14)
-    at TaskQueue.executeNext_ (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/promise.js:2773:21)
-    at /usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/promise.js:2697:25
-From: Task: Run it("adds one followed user and then removes this following") in control flow
-    at Object.<anonymous> (/usr/local/lib/node_modules/protractor/node_modules/jasminewd2/index.js:81:14)
-    at attemptAsync (/usr/local/lib/node_modules/protractor/node_modules/jasmine/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:1916:24)
-    at QueueRunner.run (/usr/local/lib/node_modules/protractor/node_modules/jasmine/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:1871:9)
-    at /usr/local/lib/node_modules/protractor/node_modules/jasmine/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:1898:16
-    at /usr/local/lib/node_modules/protractor/node_modules/jasmine/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:1842:9
-    at /usr/local/lib/node_modules/protractor/node_modules/jasminewd2/index.js:18:5
-    at Promise.invokeCallback_ (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/promise.js:1329:14)
-    at TaskQueue.execute_ (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/promise.js:2790:14)
-    at TaskQueue.executeNext_ (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/promise.js:2773:21)
-    at /usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/promise.js:2652:27
-From asynchronous test: 
-Error
-    at Suite.<anonymous> (/Users/zssve/Courses/COMP531 Web Development/COMP531/frontend/e2e/scenarios.js:115:5)
-    at addSpecsToSuite (/usr/local/lib/node_modules/protractor/node_modules/jasmine/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:833:25)
-    at Env.describe (/usr/local/lib/node_modules/protractor/node_modules/jasmine/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:802:7)
-    at jasmineInterface.describe (/usr/local/lib/node_modules/protractor/node_modules/jasmine/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:3375:18)
-    at Object.<anonymous> (/Users/zssve/Courses/COMP531 Web Development/COMP531/frontend/e2e/scenarios.js:52:1)
-    at Module._compile (module.js:435:26)
-    at Object.Module._extensions..js (module.js:442:10)
-    at Module.load (module.js:356:32)
-    at Function.Module._load (module.js:313:12)]]>
-   </failure>
-  </testcase>
-  <testcase classname="The webapp" name="searches for &quot;Only One Post Like This&quot; and verifies only one post shows and verify the author" time="1.763" />
-  <testcase classname="The webapp" name="navigates to the profile view and verifies the page is loaded" time="1.876" />
-  <testcase classname="The webapp" name="updates the user&apos;s email" time="2.319" />
-  <testcase classname="The webapp" name="updates the user&apos;s zipcode" time="2.08" />
-  <testcase classname="The webapp" name="updates the user&apos;s password" time="2.367" />
+ <testsuite name="The webapp" timestamp="2016-04-12T23:35:30" hostname="localhost" time="24.073" errors="0" tests="8" skipped="0" disabled="0" failures="0">
+  <testcase classname="The webapp" name="creates a new post and validates the post appears in the feed" time="4.448" />
+  <testcase classname="The webapp" name="updates the status headline and verifies the change" time="2.514" />
+  <testcase classname="The webapp" name="adds one followed user and then removes this following" time="3.672" />
+  <testcase classname="The webapp" name="searches for &quot;Only One Post Like This&quot; and verifies only one post shows and verify the author" time="2.453" />
+  <testcase classname="The webapp" name="navigates to the profile view and verifies the page is loaded" time="2.416" />
+  <testcase classname="The webapp" name="updates the user&apos;s email" time="2.697" />
+  <testcase classname="The webapp" name="updates the user&apos;s zipcode" time="2.847" />
+  <testcase classname="The webapp" name="updates the user&apos;s password" time="3.023" />
  </testsuite>
 </testsuites>

@@ -22,9 +22,6 @@
         vm.validateEmail = validateEmail;
         vm.validateZipcode = validateZipcode;
         vm.validatePassword = validatePassword;
-        //vm.setFile = setFile;
-        //$scope.imageFile = null;
-        //vm.newAvatar = null;
 
         $scope.cropper = {};
         $scope.cropper.sourceImage = null;
@@ -34,7 +31,6 @@
         $scope.bounds.right = 0;
         $scope.bounds.top = 0;
         $scope.bounds.bottom = 0;
-
 
         // Update the username, avatar, email, and zipcode.
         updateUserInfo();
@@ -115,14 +111,6 @@
             }
         }
 
-        //function setFile(element) {
-        //    $scope.$apply(function ($scope) {
-        //        $scope.imageFile = element.files[0];
-        //    });
-        //    vm.newAvatar = $scope.imageFile;
-        //    $scope.cropper.sourceImage = $scope.imageFile;
-        //}
-
         function updateAvatar() {
             var blob = dataURItoBlob($scope.cropper.croppedImage);
             api.setAvatar({'img': blob})
@@ -140,7 +128,7 @@
                 updateUserInfo();
             }, function (error) {
                 window.alert('Not Logged In');
-                //$location.path('/');
+                $location.path('/');
             });
         }
 

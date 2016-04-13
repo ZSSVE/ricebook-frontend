@@ -1,9 +1,10 @@
 ;(function () {
     'use strict';
 
-    angular.module('riceBookApp', ['ngRoute', 'ngResource','puElasticInput','monospaced.elastic','angular-img-cropper'])
+    angular.module('riceBookApp', ['ngRoute', 'ngResource', 'puElasticInput', 'monospaced.elastic', 'angular-img-cropper'])
         .config(config)
         .constant('apiURL', 'https://whispering-ravine-99303.herokuapp.com');
+
     config.$inject = ["$routeProvider"];
     function config($routeProvider) {
         $routeProvider
