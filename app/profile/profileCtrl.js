@@ -6,6 +6,7 @@
     function ProfileCtrl($http, api, UserService, $location, $scope) {
         var vm = this;
         vm.username = "";
+        vm.displayName = "";
         vm.avatar = "";
         vm.email = "";
         vm.zipcode = "";
@@ -17,11 +18,18 @@
         vm.newZipcode = "";
         vm.newPassword = "";
         vm.newPasswordConfirmation = "";
+        vm.linkedUsername = "";
+        vm.linkedPassword = "";
+        vm.loginMsg = "";
+        vm.unlinkMsg = "";
         vm.logout = logout;
         vm.updateProfile = updateProfile;
         vm.validateEmail = validateEmail;
         vm.validateZipcode = validateZipcode;
         vm.validatePassword = validatePassword;
+        vm.linkAccounts = linkAccounts;
+        vm.isLinked = null;
+        vm.unlinkAccounts = unlinkAccounts;
 
         $scope.cropper = {};
         $scope.cropper.sourceImage = null;
@@ -46,9 +54,11 @@
                 UserService.avatar = result.pictures[0].picture;
                 UserService.username = result.pictures[0].username;
                 vm.username = getUsername();
+                vm.displayName = getDisplayname(vm.username);
                 vm.avatar = getAvatar();
                 getEmail();
                 getZipcode();
+                isLinked();
             }, function () {
                 window.alert('Not Logged In');
                 $location.path('/');
@@ -89,7 +99,7 @@
         function getZipcode() {
             api.getZipcode()
                 .$promise.then(function (result) {
-                vm.zipcode = result.zipcode;
+                vm.zipcode = result.zipcode ? result.zipcode : "No zipcode provided";
             }, function (error) {
                 window.alert('Not Logged In');
                 $location.path('/');
@@ -228,6 +238,57 @@
 
             return new Blob([ia], {type: mimeString});
         }
+
+        function getDisplayname(username) {
+            var facebook = "@facebook";
+            if (username.indexOf(facebook) > -1) {
+                return username.split("@")[0];
+            } else {
+                return username
+            }
+        }
+
+        function linkAccounts() {
+            if (checkLogin()) {
+                vm.loginMsg = "";
+                api.linkAccounts({'username': vm.linkedUsername, 'password': vm.linkedPassword})
+                    .$promise.then(function () {
+                    updateUserInfo();  // Change path in getAvatar().
+                }, function () {
+                    vm.loginMsg = "Linking failed";
+                });
+            } else {
+                vm.loginMsg = "Please enter your name and password.";
+            }
+        }
+
+        function checkLogin() {
+            return !(vm.linkedUsername === null || vm.linkedUsername === "" || vm.linkedPassword === null || vm.linkedPassword === "");
+        }
+
+        function isLinked() {
+            api.isLinked({})
+                .$promise.then(function (result) {
+                vm.isLinked = result.isLinked;
+                return result.isLinked
+            }, function () {
+                window.alert('Checking failed');
+            });
+
+        }
+
+        function unlinkAccounts(){
+            vm.unlinkMsg='';
+            api.unlinkAccounts({})
+                .$promise.then(function (result) {
+                vm.isLinked = result.isLinked;
+                vm.unlinkMsg = "Successfully unlinked your accounts!"
+            }, function () {
+                vm.unlinkMsg = 'Unlinking accounts failed'
+            });
+
+        }
+
     }
 })();
 

@@ -24,9 +24,13 @@
 
     <!-- Feed -->
     <div id="posts">
+        <div class="post well well-sm" ng-show="vm.posts.length === 0">
+            <p>You don't have any posts yet....</p>
+            <p>Add your first post!</p>
+        </div>
         <div class="post well well-sm"
              ng-repeat="post in vm.posts| orderBy: '-date' |  selectiveFilter: vm.searchKeyword">
-            <span class="postAuthor">  {{ post.author}}</span>
+            <span class="postAuthor">  {{ post.formattedAuthor}}</span>
             <br/>
             <span class="postDate">{{ post.date }}  </span>
             <br/>
@@ -66,7 +70,7 @@
                 <div class="comment" ng-repeat='comment in post.comments'>
                     <span class="commentDate"> {{ comment.date }}</span>
                     <br/>
-                    <span class="commentAuthor">{{ comment.author}} </span>
+                    <span class="commentAuthor">{{ comment.formattedAuthor}} </span>
 
                 <span ng-hide="comment.commentEditEnabled">
                     <span> {{ comment.body}} </span>

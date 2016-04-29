@@ -1,19 +1,73 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites>
- <testsuite name="The log part of the webapp" timestamp="2016-04-12T23:35:24" hostname="localhost" time="4.333" errors="0" tests="1" skipped="0" disabled="0" failures="0">
-  <testcase classname="The log part of the webapp" name="logs in as my test user and validates current location" time="4.329" />
+ <testsuite name="The log part of the webapp" timestamp="2016-04-28T19:52:07" hostname="localhost" time="3.387" errors="0" tests="1" skipped="0" disabled="0" failures="0">
+  <testcase classname="The log part of the webapp" name="logs in as my test user and validates current location" time="3.385" />
  </testsuite>
- <testsuite name="The registration part of the webapp" timestamp="2016-04-12T23:35:28" hostname="localhost" time="1.739" errors="0" tests="1" skipped="0" disabled="0" failures="0">
-  <testcase classname="The registration part of the webapp" name="registers a new user and validates registration message" time="1.739" />
+ <testsuite name="The registration part of the webapp" timestamp="2016-04-28T19:52:10" hostname="localhost" time="1.805" errors="0" tests="1" skipped="0" disabled="0" failures="0">
+  <testcase classname="The registration part of the webapp" name="registers a new user and validates registration message" time="1.804" />
  </testsuite>
- <testsuite name="The webapp" timestamp="2016-04-12T23:35:30" hostname="localhost" time="24.073" errors="0" tests="8" skipped="0" disabled="0" failures="0">
-  <testcase classname="The webapp" name="creates a new post and validates the post appears in the feed" time="4.448" />
-  <testcase classname="The webapp" name="updates the status headline and verifies the change" time="2.514" />
-  <testcase classname="The webapp" name="adds one followed user and then removes this following" time="3.672" />
-  <testcase classname="The webapp" name="searches for &quot;Only One Post Like This&quot; and verifies only one post shows and verify the author" time="2.453" />
-  <testcase classname="The webapp" name="navigates to the profile view and verifies the page is loaded" time="2.416" />
-  <testcase classname="The webapp" name="updates the user&apos;s email" time="2.697" />
-  <testcase classname="The webapp" name="updates the user&apos;s zipcode" time="2.847" />
-  <testcase classname="The webapp" name="updates the user&apos;s password" time="3.023" />
+ <testsuite name="The webapp" timestamp="2016-04-28T19:52:12" hostname="localhost" time="20.545" errors="0" tests="8" skipped="0" disabled="0" failures="2">
+  <testcase classname="The webapp" name="creates a new post and validates the post appears in the feed" time="3.825" />
+  <testcase classname="The webapp" name="updates the status headline and verifies the change" time="2.127" />
+  <testcase classname="The webapp" name="adds one followed user and then removes this following" time="3.036" />
+  <testcase classname="The webapp" name="searches for &quot;Only One Post Like This&quot; and verifies only one post shows and verify the author" time="2.073">
+   <failure type="toEqual" message="Expected 0 to equal 1."><![CDATA[Error: Failed expectation
+    at Object.<anonymous> (/Users/zssve/Courses/COMP531 Web Development/COMP531/frontend/e2e/scenarios.js:158:31)
+    at /usr/local/lib/node_modules/protractor/node_modules/jasminewd2/index.js:96:23
+    at new Promise (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/promise.js:1043:7)
+    at controlFlowExecute (/usr/local/lib/node_modules/protractor/node_modules/jasminewd2/index.js:82:18)
+    at TaskQueue.execute_ (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/promise.js:2790:14)
+    at TaskQueue.executeNext_ (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/promise.js:2773:21)
+    at /usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/promise.js:2697:25
+    at /usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/promise.js:639:7
+    at process._tickCallback (node.js:368:9)]]>
+   </failure>
+   <failure type="exception" message="Failed: Index out of bound. Trying to access element at index: 0, but there are only 0 elements that match locator by.repeater(&quot;post in vm.posts| orderBy: &apos;-date&apos; |  selectiveFilter: vm.searchKeyword&quot;)"><![CDATA[Error: Index out of bound. Trying to access element at index: 0, but there are only 0 elements that match locator by.repeater("post in vm.posts| orderBy: '-date' |  selectiveFilter: vm.searchKeyword")
+    at /usr/local/lib/node_modules/protractor/built/element.js:245:15
+    at Promise.invokeCallback_ (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/promise.js:1329:14)
+    at TaskQueue.execute_ (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/promise.js:2790:14)
+    at TaskQueue.executeNext_ (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/promise.js:2773:21)
+    at /usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/promise.js:2652:27
+    at /usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/promise.js:639:7
+    at process._tickCallback (node.js:368:9)
+Error
+    at [object Object].ElementArrayFinder.applyAction_ (/usr/local/lib/node_modules/protractor/built/element.js:380:21)
+    at [object Object].ElementArrayFinder.(anonymous function) [as getText] (/usr/local/lib/node_modules/protractor/built/element.js:78:17)
+    at [object Object].ElementFinder.(anonymous function) [as getText] (/usr/local/lib/node_modules/protractor/built/element.js:708:7)
+    at Object.<anonymous> (/Users/zssve/Courses/COMP531 Web Development/COMP531/frontend/e2e/scenarios.js:159:64)
+    at /usr/local/lib/node_modules/protractor/node_modules/jasminewd2/index.js:96:23
+    at new Promise (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/promise.js:1043:7)
+    at controlFlowExecute (/usr/local/lib/node_modules/protractor/node_modules/jasminewd2/index.js:82:18)
+    at TaskQueue.execute_ (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/promise.js:2790:14)
+    at TaskQueue.executeNext_ (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/promise.js:2773:21)
+    at /usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/promise.js:2697:25
+From: Task: Run it("searches for "Only One Post Like This" and verifies only one post shows and verify the author") in control flow
+    at Object.<anonymous> (/usr/local/lib/node_modules/protractor/node_modules/jasminewd2/index.js:81:14)
+    at attemptAsync (/usr/local/lib/node_modules/protractor/node_modules/jasmine/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:1916:24)
+    at QueueRunner.run (/usr/local/lib/node_modules/protractor/node_modules/jasmine/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:1871:9)
+    at /usr/local/lib/node_modules/protractor/node_modules/jasmine/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:1898:16
+    at /usr/local/lib/node_modules/protractor/node_modules/jasmine/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:1842:9
+    at /usr/local/lib/node_modules/protractor/node_modules/jasminewd2/index.js:18:5
+    at Promise.invokeCallback_ (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/promise.js:1329:14)
+    at TaskQueue.execute_ (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/promise.js:2790:14)
+    at TaskQueue.executeNext_ (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/promise.js:2773:21)
+    at /usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/promise.js:2652:27
+From asynchronous test: 
+Error
+    at Suite.<anonymous> (/Users/zssve/Courses/COMP531 Web Development/COMP531/frontend/e2e/scenarios.js:150:5)
+    at addSpecsToSuite (/usr/local/lib/node_modules/protractor/node_modules/jasmine/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:833:25)
+    at Env.describe (/usr/local/lib/node_modules/protractor/node_modules/jasmine/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:802:7)
+    at jasmineInterface.describe (/usr/local/lib/node_modules/protractor/node_modules/jasmine/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:3375:18)
+    at Object.<anonymous> (/Users/zssve/Courses/COMP531 Web Development/COMP531/frontend/e2e/scenarios.js:52:1)
+    at Module._compile (module.js:435:26)
+    at Object.Module._extensions..js (module.js:442:10)
+    at Module.load (module.js:356:32)
+    at Function.Module._load (module.js:313:12)]]>
+   </failure>
+  </testcase>
+  <testcase classname="The webapp" name="navigates to the profile view and verifies the page is loaded" time="2.137" />
+  <testcase classname="The webapp" name="updates the user&apos;s email" time="2.575" />
+  <testcase classname="The webapp" name="updates the user&apos;s zipcode" time="2.34" />
+  <testcase classname="The webapp" name="updates the user&apos;s password" time="2.43" />
  </testsuite>
 </testsuites>

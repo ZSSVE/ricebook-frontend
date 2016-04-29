@@ -51,19 +51,22 @@
                 },
 
                 // Functions that requires uploading pictures
-                addPostFull: {
+                addPost: {
                     method: 'POST',
                     headers: {'Content-Type': undefined},
                     transformRequest: resourceUploadFile,
                     params: {endpoint: 'post'}
                 },
-                addPost:{method: 'POST', params: {endpoint: 'post'}},
+                addPostPartial:{method: 'POST', params: {endpoint: 'post'}},
                 setAvatar: {
                     method: 'PUT',
                     headers: {'Content-Type': undefined},
                     transformRequest: resourceUploadFile,
                     params: {endpoint: 'picture'}
-                }
+                },
+                linkAccounts:{method: 'POST', params: {endpoint: 'linkAccounts'}},
+                isLinked:{method: 'GET', params: {endpoint: 'isLinked'}},
+                unlinkAccounts:{method: 'POST', params: {endpoint: 'unlinkAccounts'}}
             });
     }
 })();

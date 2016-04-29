@@ -10,6 +10,7 @@
         vm.getUsername = getUsername;
         vm.setStatus = setStatus;
         vm.username = null;
+        vm.displayName = null;
         vm.status = getStatus();
         vm.avatar = null;
         vm.getStatus = getStatus;
@@ -27,6 +28,7 @@
                 UserService.avatar = result.pictures[0].picture;
                 UserService.username = result.pictures[0].username;
                 vm.username = getUsername();
+                vm.displayName = getDisplayname(vm.username);
                 vm.avatar = getAvatar();
             }, function () {
                 window.alert('Not Logged In');
@@ -62,5 +64,15 @@
                 $location.path('/');
             });
         }
+
+        function getDisplayname(username) {
+            var facebook = "@facebook";
+            if (username.indexOf(facebook) > -1) {
+                return username.split("@")[0]
+            } else {
+                return username
+            }
+        }
+
     }
 })();

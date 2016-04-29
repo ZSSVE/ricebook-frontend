@@ -62,12 +62,13 @@ body {
     font-size: 90%;
 }
 
-.currentInfo, #updateInfo, #currentProfilePhoto {
+.currentInfo, #updateInfo, #currentProfilePhoto, #linkAccounts, #unlinkAccounts{
     line-height: 2em;
     padding: 1em;
     font-size: 1em;
     background-color: #ede9de;
     opacity: 0.95;
+    margin-top: 0.8em;
 }
 
 #currentProfile {

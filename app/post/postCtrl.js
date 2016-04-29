@@ -65,11 +65,13 @@
             post.date = post.date.substr(0, 10) + ' ' + post.date.substr(11, 8);
             post.newBody = post.body;
             post.newComment = "";
+            post.formattedAuthor = getDisplayname(post.author);
             post.comments.forEach(function (comment) {
                 comment.commentEditEnabled = false;
                 comment.date = comment.date.substr(0, 10) + ' ' + comment.date.substr(11, 8);
                 comment.newBody = comment.body;
-                comment.ifCommentOwned = (vm.username == comment.author)
+                comment.ifCommentOwned = (vm.username == comment.author);
+                comment.formattedAuthor = getDisplayname(comment.author)
             });
             post.ifPostOwned = (vm.username == post.author);
             post.postEditEnabled = false;
@@ -151,6 +153,16 @@
                 }, function (error) {
                     window.alert('Unauthorized');
                 });
+            }
+        }
+
+        // Only show the display name provided by Facebook without fbID for a third-party logged in user.
+        function getDisplayname(username) {
+            var facebook = "@facebook";
+            if (username.indexOf(facebook) > -1) {
+                return username.split("@")[0]
+            } else {
+                return username
             }
         }
     }

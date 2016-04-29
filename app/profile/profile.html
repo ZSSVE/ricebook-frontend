@@ -56,7 +56,7 @@
 
             <div class="col-lg-10 col-md-10 col-sm-12 col-sx-12">
                 <p class="input-group-addon currentValue" id="currentUserName">
-                    {{ vm.username }}</p><br/>
+                    {{ vm.displayName }}</p><br/>
                 <p class="input-group-addon currentValue" id="currentEmail">{{
                     vm.email }}</p><br/>
                 <p class="input-group-addon currentValue" id="currentZipcode">{{
@@ -121,14 +121,52 @@
                 <span class="updateMsg"> {{ vm.passwordMsg }}</span>
                 <br/>
 
-                <!--<span class="btn btn-default btn-file btn-warning btn-sm"><span-->
-                <!--class="glyphicon glyphicon-camera"> </span>-->
-                <!--<input type="file" accept="image/*"-->
-                <!--onchange="angular.element(this).scope().vm.setFile(this)">Change Photo</span>-->
                 <button class="btn btn-warning btn-sm" id="updateBtn"
                         ng-click='vm.updateProfile()'>Update
                 </button>
             </div>
+
+        </div>
+
+        <!-- Link two accounts -->
+        <div class="col-lg-6 col-md-6 col-sm-12 col-sx-12 col-lg-offset-1 col-md-offset-1"
+             id="linkAccounts" ng-hide="vm.username === vm.displayName">
+            <h2 class="profileSectionTitle">Link accounts</h2>
+            <div>
+                <div class="input-group input-group-md">
+                    <label for="linkedUsername"
+                           class="input-group-addon">Username</label>
+                    <input ng-model="vm.linkedUsername" type="text"
+                           class="form-control" id="linkedUsername">
+                </div>
+                <br/>
+
+                <div class="input-group input-group-md">
+                    <label for="linkedPassword" class="input-group-addon">Password</label>
+                    <input ng-model="vm.linkedPassword" type="password"
+                           class="form-control" id="linkedPassword">
+                </div>
+                <br/>
+
+                <button class="btn btn-warning btn-sm" id="linkAccountsBtn"
+                        ng-click='vm.linkAccounts()'>Link Accounts
+                </button>
+                <p id="systemMsg">{{ vm.loginMsg }}</p>
+            </div>
+
+        </div>
+
+        <!-- Unlink two accounts -->
+        <div class="col-lg-6 col-md-6 col-sm-12 col-sx-12 col-lg-offset-1 col-md-offset-1"
+             id="unlinkAccounts" ng-show="vm.isLinked">
+            <h2 class="profileSectionTitle">Unlink accounts</h2>
+            <div>
+                <button class="btn btn-warning btn-sm" id="unlinkAccountsBtn"
+                        ng-click='vm.unlinkAccounts()'>Unlink Accounts
+                </button>
+                <p id="unlinkMsg">{{ vm.unlinkMsg }}</p>
+            </div>
+
         </div>
 
     </div>
