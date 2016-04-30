@@ -1,7 +1,12 @@
 <!-- User's status panel -->
 <div id="userStatus">
 
-    <div class="userSidebarName"><span class="userName">{{ vm.displayName }}</span></div>
+    <div class="userSidebarName"><span class="userName">{{ vm.displayName }}</span>
+
+    </div>
+    <p class='userID'>ID: {{ vm.username }}</p>
+
+
     <img class="avatar img-circle center-block" ng-src="{{ vm.avatar }}"/>
     <!-- StatusCtrl -->
     <p class="userStatus">{{ vm.status }}</p>
@@ -12,7 +17,8 @@
                ng-model="vm.newStatus">
         <span class="input-group-btn">
         <button class="btn btn-default btn-xs" id='newStatusBtn' ng-click='vm.setStatus()'>
-            update</button>
+            update
+        </button>
             </span>
     </div>
 
