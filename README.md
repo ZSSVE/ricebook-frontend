@@ -1,4 +1,5 @@
-# A fully functional social website for Rice students.
+# [Rice Book](https://lit-sands-78221.herokuapp.com/#/)
+### A fully functional social website for Rice students.
 
 1. Register and then log in or log in using your facebook account.
 2. Postimages, statuses and avatar.
