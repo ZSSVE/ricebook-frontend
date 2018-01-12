@@ -11,9 +11,13 @@
 
 ### MEAN stack
 MEAN started out as a combination of MongoDB, ExpressJS, AngularJS and Node.js.
+
 [AngularJS](https://github.com/angular/angular.js)
+
 [Express](https://expressjs.com/)
+
 [Angular](https://github.com/angular/angular)
+
 [Node.js](https://nodejs.org/en/)
 
 
