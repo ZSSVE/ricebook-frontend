@@ -1,10 +1,14 @@
 # A fully functional social website for Rice students.
 
-1. Register and log in or log in using your facebook account.
-2. Follow friends from same college and have fun!
+1. Register and then log in or log in using your facebook account.
+2. Postimages, statuses and avatar.
+3. Follow friends and comments your firends' posts.
+4. Link or unlink your facebook from your regular accounts.
+5. Have fun!
 
 
-# MEAN stack
+
+## MEAN stack
 MEAN started out as a combination of MongoDB, ExpressJS, AngularJS and Node.js.
 [AngularJS](https://github.com/angular/angular.js)
 [Express](https://expressjs.com/)
@@ -12,7 +16,8 @@ MEAN started out as a combination of MongoDB, ExpressJS, AngularJS and Node.js.
 [Node.js](https://nodejs.org/en/)
 
 
-# Additional Tools used
+
+## Additional Tools used
 
 [Mongoose](http://mongoosejs.com/) - Mongoose provides a straight-forward, schema-based solution to model your application data. It includes built-in type casting, validation, query building, business logic hooks and more, out of the box.
 
