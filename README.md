@@ -9,7 +9,7 @@
 
 
 
-## MEAN stack
+### MEAN stack
 MEAN started out as a combination of MongoDB, ExpressJS, AngularJS and Node.js.
 [AngularJS](https://github.com/angular/angular.js)
 [Express](https://expressjs.com/)
@@ -18,7 +18,7 @@ MEAN started out as a combination of MongoDB, ExpressJS, AngularJS and Node.js.
 
 
 
-## Additional Tools used
+### Additional Tools used
 
 [Mongoose](http://mongoosejs.com/) - Mongoose provides a straight-forward, schema-based solution to model your application data. It includes built-in type casting, validation, query building, business logic hooks and more, out of the box.
 
